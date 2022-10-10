@@ -10,6 +10,14 @@ body {
   color: #FEF2BF;
 }
 
+.start-btn {
+  width: 10%;
+  height: 30px;
+  margin-bottom: 1%;
+  background-color: black;
+  color: #fff;
+}
+
 .container {
   display: block;
   width: 50%;
