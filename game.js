@@ -7,8 +7,8 @@ let level = 0;
 let playerTurn = false;
 
 //press a
-$(document).keydown(function(event) {
-    if(event.key === "a" && !gameStarted) {
+$("h1").click(function() {
+    if(!gameStarted) {
         gameStarted = true;
         $("h1").html("Level " + level);
         nextSequence();
@@ -27,7 +27,7 @@ $(".btn").on("click", function() {
         if(!checkAnswer(userPattern.length - 1)){
             let wrong = new Audio("sounds/wrong.mp3");
             wrong.play();
-            $("h1").html("Game Over! Press A to play again");
+            $("h1").html("Game Over! Click here to play again");
             $("body").addClass("game-over")
             setTimeout(function() {
                 $("body").removeClass("game-over");
