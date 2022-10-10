@@ -6,15 +6,15 @@ let gameStarted = false;
 let level = 0;
 let playerTurn = false;
 
-//press a
-$("h1").click(function() {
+//press button
+$(".start-btn").click(function() {
     if(!gameStarted) {
         gameStarted = true;
         $("h1").html("Level " + level);
         nextSequence();
         playerTurn = true;
+        $(".start-btn").hide();
     }
-    
 });
 
 //click
@@ -27,12 +27,13 @@ $(".btn").on("click", function() {
         if(!checkAnswer(userPattern.length - 1)){
             let wrong = new Audio("sounds/wrong.mp3");
             wrong.play();
-            $("h1").html("Game Over! Click here to play again");
-            $("body").addClass("game-over")
+            $("h1").html("Game Over! Press start to play again");
+            $("body").addClass("game-over");
             setTimeout(function() {
                 $("body").removeClass("game-over");
             }, 200);
             restart();
+            $(".start-btn").show();
             return;
         }
         playSound(userChosenColor);
